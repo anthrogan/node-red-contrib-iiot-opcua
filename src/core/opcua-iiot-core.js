@@ -854,6 +854,10 @@ de.biancoroyal.opcua.iiot.core.registerToConnector = function (node) {
   node.connector.on('connection_closed', () => {
     core.setNodeOPCUAClosed(node)
   })
+ 
+   node.connector.on('connection_lost', () => {
+    core.setNodeOPCUAClosed(node)
+  })
 
   node.connector.on('reset_opcua_connection', () => {
     core.setNodeOPCUASessionClosed(node)
